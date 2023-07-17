@@ -1,0 +1,5 @@
+import { StrategyOptions } from "./types";
+export declare function createProbotAuth(options: StrategyOptions): any;
+export declare namespace createProbotAuth {
+    var VERSION: string;
+}

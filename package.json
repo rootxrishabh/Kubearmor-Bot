@@ -1,0 +1,33 @@
+{
+  "name": "kubearmor-bot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A Probot app",
+  "author": "Rishabh Soni",
+  "license": "ISC",
+  "homepage": "https://github.com//",
+  "keywords": [
+    "probot",
+    "github",
+    "probot-app"
+  ],
+  "scripts": {
+    "start": "probot run ./index.js",
+    "test": "jest",
+    "dev": "echo 'rishabh and anant were here'"
+  },
+  "dependencies": {
+    "probot": "^12.2.4"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "nock": "^13.0.5",
+    "smee-client": "^1.2.3"
+  },
+  "engines": {
+    "node": ">= 10.13.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
