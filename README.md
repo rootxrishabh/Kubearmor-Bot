@@ -1,5 +1,7 @@
 # kubearmor-bot
 
+> A GitHub App built with [Probot](https://github.com/probot/probot) that has the functionality listed below.
+
 ## Functionalities
 
 1) Automatically assign the PR to be reviewed by atleast one of the maintainers (can be taken from suggested reviewers)
@@ -8,7 +10,6 @@
 
 3) Mark a PR as stale after some time of inactivity 45 day.
 
-> A GitHub App built with [Probot](https://github.com/probot/probot) that A Probot app
 
 ## Setup
 
