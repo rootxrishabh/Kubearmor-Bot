@@ -32,24 +32,33 @@ module.exports = (app) => {
         }
     })
   })
+
+
+// checking weather all tests are passing or not, if not then create a message to address these failing tests after 15min of failing
+
+app.on("pull_request.reopened", async(context) => {
+  await new Promise((resolve) => setTimeout(resolve, 900000));
+    const owner = context.pullRequest()
+
+    const pr = await context.octokit.pulls.get(owner);
+
+    const latestCommitSHA = pr.data.head.sha;
+
+    const checkRuns = await context.octokit.checks.listForRef({
+      owner: owner.owner,
+      repo: owner.repo,
+      ref: latestCommitSHA,
+    });
+
+    const failingChecks = checkRuns.data.check_runs.filter(
+      (check) => check.conclusion === "failure"
+    );
+
+    if (failingChecks.length > 0) {
+      const issueComment = context.issue({
+        body: "You have some failing checks!",
+      });
+      return context.octokit.issues.createComment(issueComment);
+    }
+})
 }
-
-// 
-
-
-//new ideas
-
-// 1) use /assign to auto assign on an issue (check for 14 days of inactivity and assignment)
-
-// 2) use /{label-name} to assign a label
-
-// 3) Close a PR/issue after 90 days of inactivity
-
-
-// logic for implementing the PR labeling
-
-  // app.on("pull_request.reopened", async(context) => {
-  //   return context.octokit.issues.addLabels(context.issue({
-  //     labels: ["stale"]
-  //   }))
-  // })
