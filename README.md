@@ -6,7 +6,7 @@
 
 1) Automatically assign the PR to be reviewed by atleast one of the maintainers (can be taken from suggested reviewers)
 
-2) Basic checks - Whether DCO check is passed, if it's failing go-lint, go-sec or any other test and comment with asking the contributor to kindly address these. But this warning should be given only     once and after some time interval threshold (after maybe 15 min of failing the test) because many a times it's a developing PR. (TO BE IMPLEMENTED)
+2) Basic checks - Whether DCO check is passed, if it's failing go-lint, go-sec or any other test and comment with asking the contributor to kindly address these. But this warning should be given only once and after some time interval threshold (after maybe 15 min of failing the test) because many a times it's a developing PR.
 
 3) Mark a PR as stale after some time of inactivity 45 day.
 
